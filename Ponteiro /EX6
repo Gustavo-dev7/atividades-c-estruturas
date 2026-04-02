@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int maior(int *a, int *b) {
+    return (*a > *b) ? *a : *b;
+}
+
+int main() {
+    int a = 15, b = 25;
+    printf("Maior valor: %d\n", maior(&a, &b));
+    return 0;
+}
