@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int x = 10;
+    int *p;
+    
+    p = &x;
+    
+    printf("Valor de x: %d\n", x);
+    printf("Endereço de x: %p\n", (void*)&x);
+    printf("Valor armazenado em p: %p\n", (void*)p);
+    printf("Valor apontado por p: %d\n", *p);
+    
+    return 0;
+}
