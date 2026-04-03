@@ -116,15 +116,3 @@ O programa apresenta um menu com as opções:
 O menu valida se a turma existe antes de cada operação e trata erros como turma inexistente ou vagas esgotadas.
 
 ---
-
-## Como compilar e executar
-
-```bash
-# Para compilar qualquer arquivo individual
-g++ nome_do_arquivo.c -o nome_do_arquivo
-
-# Para executar (Windows)
-./nome_do_arquivo.exe
-
-# Para executar (Linux/Mac)
-./nome_do_arquivo
