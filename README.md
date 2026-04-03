@@ -1,118 +1,134 @@
-# atividades-c-estruturas
+atividades-c-estruturas
+Bloco 1 – Ponteiros e Aritmética de Ponteiros
+Exercício 1
 
----
+Nesse primeiro exercício a ideia era só entender o funcionamento básico de ponteiros.
+Criei uma variável x e um ponteiro p. Quando fiz p = &x, o ponteiro passou a armazenar o endereço de memória da variável x. Depois imprimi o valor de x, o endereço de x, o valor armazenado em p (que é justamente esse endereço) e o valor apontado por p usando *p. Esse exercício foi importante para entender a diferença entre valor e endereço.
 
-## Bloco 1 – Ponteiros e Aritmética de Ponteiros
+Exercício 2
 
-### Exercício 1
-**O básico:** ponteiro apontando para uma variável.  
-**Como pensei:** Precisava mostrar que um ponteiro guarda endereços. Então criei `x` e `p`. Fiz `p = &x` – isso significa: "p, agora você aponta para o endereço da x". Depois imprimi tudo: o valor de x, o endereço dela, o que p contém (que é o endereço) e o valor que está nesse endereço (o conteúdo de x). Simples, mas essencial.
+Aqui o objetivo era alterar o valor de uma variável usando ponteiro.
+Fiz um ponteiro apontar para a variável n e depois usei *p = 20. Dessa forma, o valor de n foi alterado indiretamente, sem modificar a variável diretamente pelo nome dela, apenas através do ponteiro.
 
-### Exercício 2
-**Mudando o valor de uma variável sem tocar nela diretamente.**  
-Com `p` apontando para `n`, usei `*p = 20`. Aqui a mágica: `*p` é como se fosse a própria `n`. Assim, alterei `n` de forma indireta. É como ter um controle remoto que mexe na variável à distância.
+Exercício 3
 
-### Exercício 3
-**Somando dois números com ponteiros.**  
-A função `soma` recebe três ponteiros. Dentro dela, desreferencio os dois primeiros (`*a`, `*b`) para pegar os valores, somo e guardo no endereço apontado por `resultado`. Na `main`, passo os endereços das variáveis com `&`.
+Nesse exercício fiz uma função para somar dois números usando ponteiros.
+A função recebe três ponteiros: dois para os valores que serão somados e um para armazenar o resultado. Dentro da função, usei *a e *b para acessar os valores e depois guardei o resultado em *resultado. Na função principal, passei os endereços das variáveis usando o operador &.
 
-### Exercício 4
-**Troca de valores (swap).**  
-Usei uma variável temporária `temp` para guardar o valor de `*a`, depois coloquei `*b` em `*a` e o valor temporário em `*b`. Assim os valores são trocados permanentemente.
+Exercício 4
 
-### Exercício 5
-**Maior de dois números.**  
-Comparei `*a` e `*b` usando o operador ternário e retornei o maior valor.
+Aqui foi feita a troca de valores entre duas variáveis (swap).
+Usei uma variável auxiliar para armazenar temporariamente um dos valores, depois fiz a troca usando os ponteiros. Assim, os valores das variáveis foram trocados de forma permanente.
 
-### Exercício 6
-**Percorrendo vetor com ponteiro.**  
-Fiz `p = v` (em C, o nome do array decai para um ponteiro para o primeiro elemento). Usei `*(p + i)` para acessar cada elemento, demonstrando aritmética de ponteiros.
+Exercício 5
 
-### Exercício 7
-**Soma de vetor com ponteiros.**  
-Percorri o vetor usando `*(v + i)` e acumulei os valores na variável `soma`.
+Nesse exercício precisei criar uma função que retornasse o maior entre dois números usando ponteiros.
+Comparei os valores apontados pelos ponteiros e retornei o maior deles utilizando o operador ternário.
 
-### Exercício 8
-**Maior elemento do vetor.**  
-Inicializei `maior` com o primeiro elemento (`*v`) e, durante a varredura, atualizei sempre que encontrava um valor maior.
+Exercício 6
 
-### Exercício 9
-**Ponteiro para ponteiro.**  
-Criei `p` apontando para `x`, e `pp` apontando para `p`. Acessei o valor final de três formas diferentes: `x`, `*p` e `**pp`. Isso mostra que múltiplos níveis de indireção são possíveis.
+Aqui comecei a trabalhar com vetores usando ponteiros.
+Como o nome do vetor já representa o endereço do primeiro elemento, atribuí o vetor a um ponteiro e percorri os elementos usando aritmética de ponteiros, acessando cada posição com *(p + i).
 
-### Exercício 10
-**Inverter vetor.**  
-Usei dois ponteiros: `inicio` (apontando para o primeiro elemento) e `fim` (apontando para o último). Troquei os valores enquanto `inicio < fim` e movi os ponteiros um para frente e outro para trás.
+Exercício 7
 
-### Exercício 11 (Desafio)
-**Alocação dinâmica com malloc.**  
-Perguntei ao usuário o tamanho do vetor, aloquei com `malloc`, verifiquei se a alocação foi bem-sucedida, li os valores, calculei a média e liberei a memória com `free`.
+Esse exercício foi parecido com o anterior, mas o objetivo era somar todos os elementos do vetor.
+Percorri o vetor usando ponteiros e fui acumulando a soma em uma variável.
 
----
+Exercício 8
 
-## Bloco 2 – Alocação Dinâmica (Apenas 1 questão – slide 31)
+Nesse exercício precisei encontrar o maior elemento de um vetor.
+Comecei considerando o primeiro elemento como o maior e depois percorri o vetor comparando com os demais valores. Sempre que encontrava um valor maior, atualizava a variável que armazenava o maior.
 
-### Matriz 5x5 com índices
-**Como pensei:** Uma matriz dinâmica em C é um ponteiro para ponteiro (`int**`). Primeiro aloco um vetor de ponteiros (as linhas), depois aloco cada linha individualmente. Preenchi cada posição com `i * 5 + j` para que o número reflita sua posição (ex: linha 0, coluna 0 → 0; linha 2, coluna 3 → 13). No final, liberei cada linha e depois a matriz principal.
+Exercício 9
 
----
+Aqui trabalhei com ponteiro para ponteiro.
+Criei uma variável, um ponteiro apontando para ela e um segundo ponteiro apontando para o primeiro. Depois mostrei que era possível acessar o valor da variável diretamente, pelo ponteiro e pelo ponteiro de ponteiro (**pp).
 
-## Bloco 3 – Vetores e Matrizes (4 questões do INFO-2_1_1.pdf)
+Exercício 10
 
-### Exercício 1 – Vetor invertido
-Perguntei o tamanho `n`, aloquei o vetor com `malloc`, li os valores do usuário e imprimi do último índice (`n-1`) até o primeiro (`0`).
+Nesse exercício inverti um vetor usando ponteiros.
+Utilizei dois ponteiros: um apontando para o início do vetor e outro para o final. Fui trocando os valores enquanto o ponteiro do início era menor que o do final, movendo um para frente e o outro para trás.
 
-### Exercício 2 – Matriz e transposta
-Aloquei duas matrizes dinâmicas (original e transposta). Para a transposta, fiz `transposta[j][i] = matriz[i][j]`. Depois imprimi ambas e liberei a memória.
+Exercício 11 (Desafio)
 
-### Exercício 3 – Matriz quadrada aleatória
-Aloquei uma matriz `n x n`, usei `srand(time(NULL))` para gerar números aleatórios diferentes a cada execução, e preenchi com `rand() % 100 + 1` (números entre 1 e 100).
+Aqui trabalhei com alocação dinâmica de memória.
+Primeiro pedi ao usuário o tamanho do vetor, depois aloquei memória usando malloc. Verifiquei se a alocação deu certo, li os valores, calculei a média e no final liberei a memória usando free.
 
-### Exercício 4 – Nomes e idades
-Aloquei um vetor de ponteiros para `char` (`char** nomes`) e um vetor de `int` (`int* idades`). Para cada pessoa, aloquei espaço para o nome com `malloc`. Usei `fgets` para ler nomes com espaços e `scanf` para as idades. No final, liberei cada nome e depois os vetores principais.
+Bloco 2 – Alocação Dinâmica
+Matriz 5x5 com índices
 
----
+Nesse exercício fiz a alocação dinâmica de uma matriz.
+Como uma matriz dinâmica em C é representada por um ponteiro para ponteiro (int**), primeiro aloquei memória para as linhas e depois para as colunas de cada linha. Preenchi a matriz com valores baseados na posição dos índices e, ao final, liberei toda a memória alocada.
 
-## Bloco 4 – Tipos Estruturados
+Bloco 3 – Vetores e Matrizes
+Exercício 1 – Vetor invertido
 
-### Parte 1 – Funcionário e Pessoa (INFO-1_2.pdf)
+Aqui aloquei dinamicamente um vetor, li os valores informados pelo usuário e depois imprimi o vetor em ordem inversa, começando do último elemento até o primeiro.
 
-**Funcionario:**
-- `preencherFuncionario`: recebe ponteiro e preenche nome, salário, identificador e cargo.
-- `imprimirFuncionario`: exibe todos os dados.
-- `alterarSalario`: modifica o salário via ponteiro.
-- `maiorEMenorSalario`: percorre o vetor e encontra o maior e menor salário.
+Exercício 2 – Matriz e transposta
 
-**Pessoa:**
-- `preencherPessoa`: preenche nome, documento e idade.
-- `imprimirPessoa`: exibe os dados.
-- `atualizarIdade`: modifica a idade.
-- `maisVelhaEMaisNova`: percorre o vetor e encontra a pessoa mais velha e a mais nova.
+Nesse exercício criei uma matriz e também sua transposta.
+A transposta foi feita trocando as posições dos índices, ou seja, o elemento [i][j] da matriz original virou [j][i] na matriz transposta.
 
-### Parte 2 – Gerenciamento de Turmas (Prática_Tipos_Estruturados.pdf)
+Exercício 3 – Matriz quadrada aleatória
 
-**Estruturas criadas:**
-- `Aluno`: matrícula, nome, 3 notas, média.
-- `Turma`: identificador, vagas disponíveis, vetor de ponteiros para alunos.
+Aqui aloquei uma matriz quadrada e preenchi com números aleatórios.
+Usei srand(time(NULL)) para que os números mudassem a cada execução e utilizei rand() para gerar valores dentro de um intervalo definido.
 
-**Funções implementadas:**
-- `cria_turma`: aloca memória para a turma, define o identificador, inicializa vagas e coloca todos os ponteiros de alunos como `NULL`.
-- `matricula_aluno`: verifica se há vaga, procura a primeira posição vazia, aloca memória para o aluno, inicializa notas com zero e armazena o ponteiro.
-- `lanca_notas`: percorre os alunos matriculados, solicita as 3 notas e calcula a média aritmética.
-- `imprime_alunos`: exibe matrícula, nome e média de cada aluno.
-- `imprime_turmas`: lista todas as turmas criadas com suas vagas disponíveis.
-- `procura_turma`: busca uma turma pelo identificador.
-- `liberar_memoria`: libera toda a memória alocada (alunos e turmas).
+Exercício 4 – Nomes e idades
 
-**Menu interativo:**
-O programa apresenta um menu com as opções:
-1. Criar turma
-2. Listar turmas
-3. Matricular aluno
-4. Lançar notas
-5. Listar alunos
-6. Sair
+Nesse exercício trabalhei com alocação dinâmica para armazenar nomes e idades.
+Usei um vetor de ponteiros para armazenar os nomes e um vetor de inteiros para as idades. Para cada nome, aloquei memória separadamente. No final, liberei toda a memória que foi alocada.
 
-O menu valida se a turma existe antes de cada operação e trata erros como turma inexistente ou vagas esgotadas.
+Bloco 4 – Tipos Estruturados
+Parte 1 – Funcionário e Pessoa
 
----
+Aqui trabalhei com estruturas (struct) para organizar dados mais complexos.
+
+Para Funcionário, criei funções para:
+
+preencher os dados
+imprimir os dados
+alterar o salário
+encontrar o maior e o menor salário
+
+Para Pessoa, fiz funções para:
+
+preencher os dados
+imprimir
+atualizar idade
+encontrar a pessoa mais velha e a mais nova
+Parte 2 – Gerenciamento de Turmas
+
+Essa parte foi a mais completa, funcionando como um pequeno sistema.
+
+Criei duas estruturas:
+
+Aluno (matrícula, nome, notas e média)
+Turma (identificador, vagas e vetor de alunos)
+
+Depois implementei funções para:
+
+criar turma
+matricular aluno
+lançar notas
+listar alunos
+listar turmas
+procurar turma
+liberar memória
+
+O programa funciona com um menu interativo onde o usuário pode escolher as operações. Também fiz verificações para evitar erros, como tentar matricular aluno em turma cheia ou acessar turma que não existe.
+
+Resumo geral
+
+Essas atividades foram importantes para entender melhor:
+
+ponteiros
+aritmética de ponteiros
+alocação dinâmica
+vetores e matrizes dinâmicas
+estruturas em C
+organização de programas maiores
+
+Basicamente, foi uma prática completa sobre manipulação de memória e estruturas de dados na linguagem C.
